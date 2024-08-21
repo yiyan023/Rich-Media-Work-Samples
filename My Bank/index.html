@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>MyBank - Developer lab</title>
+    <link rel="stylesheet" href="../common/css/main.css" />
+</head>
+<body>
+    <div class="page-container">
+    <nav class="desktop-menu">
+        <div class="wrapper flex-nav">
+            <div class="logo">
+                <a href="index.html"><img src="../common/images/mybank.png" alt="My Bank logo"/></a>
+            </div>
+            <div class="links">
+                <a href="index.html">home</a>
+                <a href="calculator.html" class="selected">calculators</a>
+                <a href="javascript:void(0)">resource center</a>
+                <a href="javascript:void(0)">contact us</a>
+            </div>
+        </div>
+    </nav>
+
+    <nav role="navigation" class="mobile-menu">
+        <div class="logo aos-init aos-animate" data-aos="fade-right">
+            <img src="../common/images/mybank.png" alt="logo" />
+        </div>
+        <div id="menuToggle" data-aos="fade-right" class="aos-init aos-animate">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="index.html">
+                    <li class="active">home</li>
+                </a>
+                <a href="calculator.html">
+                    <li>calculators</li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>resource center</li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>contact us</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+        
+        <main>
+            <div class="banner">
+                <div class="banner-home calculator">
+                    <div class="wrapper">
+                        <div class="copy">
+                            <h1>Retirement savings calculator</h1>
+                            <p>Understand the impact of contributions to your retirement savings.</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            
+            <div class="content">
+                <form id="bankForm" class="bankForm">
+                    <div class="wrapper">
+                        <!-- main box-->
+                        <fieldset rm-form-group="user">
+                            <div class="input-box" id="inputs">
+                                <div class="box-header">
+                                    <h2>Your retirement  savings</h2>
+                                </div>
+                                    <div class="inputs">
+                                        <div class="column">
+                                            <div class="input-container">
+                                                <label for="name" rm-label="name">Name</label>
+                                                <input type="text" id="name" rm-input="name">
+                                                <div class="error" rm-error="name" error-type="required">Required</div>
+                                            </div> 
+                                            <div class="input-container slider-container">
+                                                <label for="age" rm-label="age">Age</label>
+                                                <div class="slider-row">
+                                                    <div class="slider" id="ageSlider">
+                                                        <div class="bar">
+                                                            <div class="handle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="slider-input years">
+                                                        <input type="text" id="age" rm-input="age">
+                                                        <div class="error" rm-error="age" error-type="required">Required</div>
+                                                        <div class="error" id="userageLetter">Please input a valid number.</div>
+                                                        <div class="error" id="userageError">Input out of range.</div>
+                                                    </span>    
+                                                </div>   
+                                            </div>
+                                            <div class="input-container slider-container">
+                                                <label for="retirementAge" rm-label="retirementAge">Retirement age</label>
+                                                <div class="slider-row">
+                                                    <div class="slider" id="retirementSlider">
+                                                        <div class="bar">
+                                                            <div class="handle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="slider-input years">
+                                                        <input type="text" id="retirementAge" rm-input="retirementAge">
+                                                        <div class="error" rm-error="retirementAge" error-type="required">Required</div>
+                                                        <div class="error" id="userretirementAgeLetter">Please input a valid number.</div>
+                                                        <div class="error" id="userretirementAgeError">Input out of range.</div>
+                                                    </span>    
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="input-container slider-container">
+                                                <label for="annualIncome" rm-label="annualIncome">Annual income</label>
+                                                <div class="slider-row">
+                                                    <div class="slider" id="incomeSlider">
+                                                        <div class="bar">
+                                                            <div class="handle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="slider-input dollar">
+                                                        <input type="text" id="annualIncome" rm-input="annualIncome">
+                                                        <div class="error" rm-error="annualIncome" error-type="required">Required</div>
+                                                        <div class="error" id="userannualIncomeLetter">Please input a valid number.</div>
+                                                        <div class="error" id="userannualIncomeError">Input out of range.</div>
+                                                    </span>    
+                                                </div>    
+                                            </div> 
+                                            <div class="input-container slider-container">
+                                                <label for="currentSavings" rm-label="currentSavings">Current savings</label>
+                                                <div class="slider-row">
+                                                    <div class="slider" id="savingsSlider">
+                                                        <div class="bar">
+                                                            <div class="handle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="slider-input dollar">
+                                                        <input type="text" id="currentSavings" rm-input="currentSavings">
+                                                        <div class="error" rm-error="currentSavings" error-type="required">Required</div>
+                                                        <div class="error" id="usercurrentSavingsLetter">Please input a valid number.</div>
+                                                        <div class="error" id="usercurrentSavingsError">Input out of range.</div>
+                                                    </span>  
+                                                </div>    
+                                            </div>
+                                            <div class="input-container slider-container">
+                                                <label for="contribution" rm-label="regularContribution">Regular contribution</label>
+                                                <div class="slider-row">
+                                                    <div class="slider" id="contributionSlider">
+                                                        <div class="bar">
+                                                            <div class="handle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <span class="slider-input dollar">
+                                                        <input type="text" id="regularContribution" rm-input="regularContribution">
+                                                        <div class="error" rm-error="regularContribution" error-type="required">Required</div>
+                                                        <div class="error" id="userregularContributionLetter">Please input a valid number.</div>
+                                                        <div class="error" id="userregularContributionError">Input out of range.</div>
+                                                    </span>    
+                                                </div>   
+                                                <div class="rm-radio side-by-side" role="group" aria-labelledby="frequency">
+                                                <div class="radio-item">
+                                                    <input id="Month" type="radio" name="frequency" rm-input="Month"></input>
+                                                    <label for="Month" rm-label="Month">
+                                                        <span class="overlay"></span>
+                                                        <span class="text">Month</span>
+                                                    </label>
+                                                </div>
+            
+                                                <div class="radio-item">
+                                                    <input id="Year" type="radio" name="frequency" rm-input="Year"></input>
+                                                    <label for="Year" rm-label="Year">
+                                                        <span class="overlay"></span>
+                                                        <span class="text">Year</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <button class="add" id="spouseButton" type="button">+ Add spouse</button>
+                            </div>
+                        </fieldset>
+                        <!-- end of main box-->
+                        
+                        <!-- spouse box-->
+                        <fieldset rm-form-group="spouse">
+                            <div class="input-box" style="display:none;" id="spouseInputs">
+                                <div class="box-header">
+                                    <h2>Your spouse's retirement savings</h2>
+                                    <button class="close" id="closeButton" type="button">X</button>
+                                </div>
+                                <div class="inputs">
+                                    <div class="column">
+                                        <div class="input-container">
+                                            <label for="spouseName" rm-label="spouseName">Name</label>
+                                            <input type="text" id="spouseName" rm-input="spouseName">
+                                            <div class="error" rm-error="spouseName" error-type="required">Required</div>
+                                        </div> 
+                                        <div class="input-container slider-container">
+                                            <label for="spouseAge" rm-label="spouseAge">Age</label>
+                                            <div class="slider-row">
+                                                <div class="slider" id="spouseAgeSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input years">
+                                                    <input type="text" id="spouseAge" rm-input="spouseAge">
+                                                    <div class="error" rm-error="spouseAge" error-type="required">Required</div>
+                                                    <div class="error" id="spousespouseAgeLetter">Please input a valid number.</div>
+                                                    <div class="error" id="spousespouseAgeError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                        <div class="input-container slider-container">
+                                            <label for="spouseRetirementAge" rm-label="spouseRetirementAge">Retirement age</label>
+                                            <div class="slider-row">
+                                                <div class="slider"  id="spouseRetirementAgeSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input years">
+                                                    <input type="text" id="spouseRetirementAge" rm-input="spouseRetirementAge">
+                                                    <div class="error" rm-error="spouseRetirementAge" error-type="required">Required</div>
+                                                    <div class="error" id="spousespouseRetirementAgeLetter">Please input a valid number.</div>
+                                                    <div class="error" id="spousespouseRetirementAgeError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="input-container slider-container">
+                                            <label for="spouseAnnualIncome" rm-label="spouseAnnualIncome">Annual income</label>
+                                            <div class="slider-row">
+                                                <div class="slider"  id="spouseIncomeSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input dollar">
+                                                    <input type="text" id="spouseAnnualIncome" rm-input="spouseAnnualIncome">
+                                                    <div class="error" rm-error="spouseAnnualIncome" error-type="required">Required</div>
+                                                    <div class="error" id="spousespouseAnnualIncomeLetter">Please input a valid number.</div>
+                                                    <div class="error" id="spousespouseAnnualIncomeError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div> 
+                                        <div class="input-container slider-container">
+                                            <label for="spouseCurrentSavings" rm-label="spouseCurrentSavings">Current savings</label>
+                                            <div class="slider-row">
+                                                <div class="slider"  id="spouseSavingsSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input dollar">
+                                                    <input type="text" id="spouseCurrentSavings" rm-input="spouseCurrentSavings">
+                                                    <div class="error" rm-error="spouseCurrentSavings" error-type="required">Required</div>
+                                                    <div class="error" id="spousespouseCurrentSavingsLetter">Please input a valid number.</div>
+                                                    <div class="error" id="spousespouseCurrentSavingsError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                        <div class="input-container slider-container">
+                                            <label for="spouseRegularContribution" rm-label="spouseRegularContribution">Regular contribution</label>
+                                            <div class="slider-row">
+                                                <div class="slider"  id="spouseContributionSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input dollar">
+                                                    <input type="text" id="spouseRegularContribution" rm-input="spouseRegularContribution">
+                                                    <div class="error" rm-error="spouseRegularContribution" error-type="required">Required</div>
+                                                    <div class="error" id="spousespouseRegularContributionLetter">Please input a valid number.</div>
+                                                    <div class="error" id="spousespouseRegularContributionError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- end of spouse box-->
+                        </fieldset>
+
+                        <fieldset rm-form-group="assumptions">
+                            <div class="input-box">
+                                <div class="box-header">
+                                    <h2>Assumptions</h2>
+                                </div>
+                                <div class="inputs">
+                                    <div class="column">
+                                        <div class="input-container slider-container">
+                                            <label for="returnRate" rm-label="returnRate">Rate of return</label>
+                                            <div class="slider-row">
+                                                <div class="slider" id="returnRateSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input rate">
+                                                    <input type="text" id="returnRate" rm-input="returnRate">
+                                                    <div class="error" rm-error="returnRate" error-type="required">Required</div>
+                                                    <div class="error" id="assumptionsreturnRateLetter">Please input a valid number.</div>
+                                                    <div class="error" id="assumptionsreturnRateError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                        <div class="input-container slider-container">
+                                            <label for="inflationRate" rm-label="inflationRate">Inflation rate</label>
+                                            <div class="slider-row">
+                                                <div class="slider" id="inflationRateSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input rate">
+                                                    <input type="text" id="inflationRate" rm-input="inflationRate">
+                                                    <div class="error" rm-error="inflationRate" error-type="required">Required</div>
+                                                    <div class="error" id="assumptionsinflationRateLetter">Please input a valid number.</div>
+                                                    <div class="error" id="assumptionsinflationRateError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="input-container slider-container">
+                                            <label for="incomeLast" rm-label="incomeLast">Retirement income needs to last until</label>
+                                            <div class="slider-row">
+                                                <div class="slider" id="incomeLastSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input years">
+                                                    <input type="text" id="incomeLast" rm-input="incomeLast">
+                                                    <div class="error" rm-error="incomeLast" error-type="required">Required</div>
+                                                    <div class="error" id="assumptionsincomeLastLetter">Please input a valid number.</div>
+                                                    <div class="error" id="assumptionsincomeLastError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div> 
+                                        <div class="input-container slider-container">
+                                            <label for="expectedIncome" rm-label="expectedIncome">Expected retirement income</label>
+                                            <div class="slider-row">
+                                                <div class="slider" id="expectedIncomeSlider">
+                                                    <div class="bar">
+                                                        <div class="handle"></div>
+                                                    </div>
+                                                </div>
+                                                <span class="slider-input dollar">
+                                                    <input type="text" id="expectedIncome" rm-input="expectedIncome">
+                                                    <div class="error" rm-error="expectedIncome" error-type="required">Required</div>
+                                                    <div class="error" id="assumptionsexpectedIncomeLetter">Please input a valid number.</div>
+                                                    <div class="error" id="assumptionsexpectedIncomeError">Input out of range.</div>
+                                                </span>    
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <button class="btn" id="calculate" type="button">Calculate</button>
+                        <div class="error" id="calculateError">Please fill in everything.</div>
+                        
+                    </div>    
+                </form>
+            </div>
+            
+            
+            <div class="content" >
+                <div class="wrapper">
+                    <!-- main box-->
+                    <div class="input-box" id="results">
+                        <div class="box-header">
+                            <h2>Your results</h2>
+                        </div>
+                        <div class="graph">
+                            <canvas class="output-graph" id="userCanvas" style="max-width: 100%;"></canvas>
+                            <table class="output-table">
+                                <tr>
+                                    <th>Projected Savings</th>
+                                    <th>Your Retirement Needs</th>
+                                </tr>
+                                <tr>
+                                    <td id="userProjectedSavings">--</td>
+                                    <td id="userRetirementNeeds">--</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end of main box-->
+                    
+                    <!-- spouse box-->
+                    <div class="input-box" id="spouseResults">
+                        <div class="box-header">
+                            <h2>Your spouse's results</h2>
+                        </div>
+                        <div class="graph">
+                            <canvas class="output-graph" id="spouseCanvas" style="max-width: 100%;"></canvas>
+                            <table class="output-table">
+                                <tr>
+                                    <th>Projected Savings</th>
+                                    <th>Your Retirement Needs</th>
+                                </tr>
+                                <tr>
+                                    <td id="spouseProjectedSavings">--</td>
+                                    <td id="spouseRetirementNeeds">--</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end of spouse box-->
+                    
+                    <button class="btn" id="pdfButton">PDF Report</button>
+                    <button class="btn">Watch video</button>
+                </div>    
+            </div>
+
+            <div class="pdf" id="pdfContent">
+                <rm-html-pdf id="pdfForm">
+                    <pdf-page-template id="userResults" size="letter" orientation="portrait">
+                        <pdf-page-content />
+                    </pdf-page-template>
+                    <pdf-page-template id="spouseResults" size="letter" orientation="portrait">
+                        <pdf-page-content />
+                    </pdf-page-template>
+
+                    <pdf-section template="userResults" id="userPdfPage">
+                        <div class="user-content">
+                            <h1>Retirement Savings Calculator Results</h1>
+                            <h3>Your Information:</h3>
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Retirement Age</th>
+                                    <th>Annual Income</th>
+                                    <th>Current Savings</th>
+                                    <th>Regular Contribution</th>
+                                </tr>
+                                <tr>
+                                    <td id="userName">N/A</td>
+                                    <td id="userAge">N/A</td>
+                                    <td id="userRetirementAge">N/A</td>
+                                    <td id="userIncome">N/A</td>
+                                    <td id="userSavings">N/A</td>
+                                    <td id="userContribution">N/A</td>
+                                </tr>
+                            </table>
+
+                            <h3>Assumptions:</h3>
+                            <table>
+                                <tr>
+                                    <th>Annual Rate of Return</th>
+                                    <th>Inflation Rate</th>
+                                    <th>Retirement Income Needs to Last Until</th>
+                                    <th>Expected Retirement Income</th>
+                                </tr>
+                                <tr>
+                                    <td id="pdfRateReturn">N/A</td>
+                                    <td id="pdfInflation">N/A</td>
+                                    <td id="pdfLifeExpectancy">N/A</td>
+                                    <td id="pdfExpectedIncome">N/A</td>
+                                </tr>
+                            </table>
+
+                            <h3>Your Results</h3>
+                            <table>
+                                <tr>
+                                    <th>Projected Savings</th>
+                                    <th>Your Retirement Needs</th>
+                                </tr>
+                                <tr>
+                                    <td id="userPdfProjectedSavings">N/A</td>
+                                    <td id="userPdfRetirementNeeds">N/A</td>
+                                </tr>
+                            </table>
+                            <pdf-columns columns="15% 70% 15%">
+                                <div></div>
+                                <div>
+                                    <img id="userGraph">
+                                </div>
+                                <div></div>
+                            </pdf-columns>
+                        </div>
+                    </pdf-section>
+
+                    <pdf-section template="spouseResults" id="spousePdfPage" class="pdfPage">
+                        <div class="user-content">
+                            <h3>Your Spouse's Information:</h3>
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Retirement Age</th>
+                                    <th>Annual Income</th>
+                                    <th>Current Savings</th>
+                                    <th>Regular Contribution</th>
+                                </tr>
+                                <tr>
+                                    <td id="spousePdfName">N/A</td>
+                                    <td id="spousePdfAge">N/A</td>
+                                    <td id="spousePdfRetirementAge">N/A</td>
+                                    <td id="spousePdfIncome">N/A</td>
+                                    <td id="spousePdfSavings">N/A</td>
+                                    <td id="spousePdfContribution">N/A</td>
+                                </tr>
+                            </table>
+
+                            <h3>Assumptions:</h3>
+                            <table>
+                                <tr>
+                                    <th>Annual Rate of Return</th>
+                                    <th>Inflation Rate</th>
+                                    <th>Retirement Income Needs to Last Until</th>
+                                    <th>Expected Retirement Income</th>
+                                </tr>
+                                <tr>
+                                    <td id="pdfSpouseRateReturn">N/A</td>
+                                    <td id="pdfSpouseInflation">N/A</td>
+                                    <td id="pdfSpouseLifeExpectancy">N/A</td>
+                                    <td id="pdfSpouseExpectedIncome">N/A</td>
+                                </tr>
+                            </table>
+                                
+                            <h3>Your Spouse's Results</h3>
+                            <table>
+                                <tr>
+                                    <th>Projected Savings</th>
+                                    <th>Your Retirement Needs</th>
+                                </tr>
+                                <tr>
+                                    <td id="spousePdfProjectedSavings">N/A</td>
+                                    <td id="spousePdfRetirementNeeds">N/A</td>
+                                </tr>
+                            </table>
+                                
+                            <pdf-columns columns="10% 80% 10%">
+                                <div></div>
+                                <div>
+                                    <img id="spouseGraph">
+                                </div>
+                                <div></div>
+                            </pdf-columns>
+                        </div>
+                    </pdf-section>
+                </rm-html-pdf>
+                <a id="pdfDownload" href="" download="RetirementSavings.pdf" style="display: none;"></a>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="wrapper">
+                <a href="javascript:void(0)">privacy</a>
+                <a href="javascript:void(0)">book appointment</a>
+                <a href="javascript:void(0)">accessibility</a>
+                <a href="javascript:void(0)">contact us</a>
+            </div>    
+        </footer>
+    </div>
+    <script src="../common/lib/jquery-3.3.1.min.js"></script>
+    <script src="../common/lib/jspdf.js"></script>
+    <script src="../common/script/rmlibrary.js"></script>
+    <script src="../common/script/main.js"></script>
+    <script>
+        __rmAmd.require(["calculator.js"]);
+    </script>
+    
+</body>
+</html>
