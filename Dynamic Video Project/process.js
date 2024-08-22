@@ -40,7 +40,7 @@ function startDrawing() {
 
   let animationId = null;
   let x = canvas.width / 2;
-  let dx = 2;
+  let dx = 5;
     
   function animate(elapsed) {
     encodeFrames();
@@ -76,8 +76,8 @@ function startDrawing() {
 
 const encodeFrames = () => {
   let frame = new VideoFrame(canvas, {
-    timestamp: frameCounter * 1000000 / 30,
-    duration: 1000000 / 30
+    timestamp: frameCounter * 1000000 / 25,
+    duration: 1000000 / 25
   })
 
   frameCounter += 1;
@@ -95,6 +95,8 @@ async function decodeAndRender() {
 
   let url = window.URL.createObjectURL(blob)
   let video = document.createElement('video')
+  video.height = canvas.height;
+  video.width = canvas.width;
   video.src = url
   video.controls = true;
   document.body.appendChild(video)
